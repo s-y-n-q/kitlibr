@@ -18,7 +18,7 @@ local function exec()
                 warn(err)
             end)
         end
-        delfile("kitlibr/execution.klr")  -- Delete the file after execution
+        delfile("kitlibr/execution.klr")  -- Delete the file after execution (put this comment here cause im stuopid dumb and shit)
     end
 end
 
