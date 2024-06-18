@@ -1,7 +1,7 @@
 print("init kitlibr")
 
 getgenv().identifykit = newcclosure(function()
-    return "kitiana", "1.0.0"
+    return "kitlibr", "1.0.0";
 end)
 
 local function attach()
@@ -13,15 +13,12 @@ end
 local function exec()
     if isfile("kitlibr/execution.klr") then
         local output = readfile("kitlibr/execution.klr")
-        if output and #output > 0 then
-            local func, err = loadstring(output)
-            if func then
-                xpcall(func, function(err)
-                    warn("Error during execution:", err)
-                end)
-            else
-                warn("Error loading string:", err)
-            end
+        if output ~= "" then
+            xpcall(function()
+                loadstring(output)()
+            end, function(err)
+                --warn(err)
+            end)
         end
         delfile("kitlibr/execution.klr")
     end
@@ -32,4 +29,3 @@ while true do
     exec()
     wait(0.1)
 end
-
