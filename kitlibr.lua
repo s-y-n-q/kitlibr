@@ -1,6 +1,8 @@
-wait(2)
-
 print("init kitlibr")
+
+getgenv().identifykit = newcclosure(function()
+    return readfile("kitlibr/backend/name.klr"), readfile("kitlibr/backend/vers.klr");
+end)
 
 local function attach()
     if readfile("kitlibr/attached.klr") == "[ kitlibr 1.0.0 ]" then
@@ -18,7 +20,7 @@ local function exec()
                 warn(err)
             end)
         end
-        delfile("kitlibr/execution.klr")  -- Delete the file after execution (put this comment here cause im stuopid dumb and shit)
+        delfile("kitlibr/execution.klr")  -- Delete the file after execution
     end
 end
 
