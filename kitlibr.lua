@@ -23,7 +23,7 @@ local function exec()
                 warn("Error loading string:", err)
             end
         end
-        delfile("kitlibr/execution.klr")  -- Delete the file after execution
+        delfile("kitlibr/execution.klr")
     end
 end
 
